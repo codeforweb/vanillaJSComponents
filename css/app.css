@@ -1,0 +1,20 @@
+
+a {
+    color: #0088cc;
+    text-decoration: none;
+}
+
+a:hover {
+  color: #005580;
+  text-decoration: underline;
+}
+
+
+.offscreen{
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);    /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+button:focus {
+	outline: dotted 1px #000;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<title>Tooltips</title>
+    <meta charset="utf-8">
+     <link href="css/tooltip.css" rel="stylesheet">
+      <link href="css/app.css" rel="stylesheet">
+  </head>
+  
+  <body>
+  	 <div class="container">
+        		<h3>Tooltips</h3>
+        		A tooltip is like windows tooltip 
+       			 <a href="#" rel="tooltip" data-class ="error" title="Default tooltip"  data-placement="bottom" data-options='{"placement":"bottom"}'>you probably</a>
+
+				 might have noticed that in 
+
+				 <a href="htt://www.microsoft.com" rel="tooltip" title="microsoft.com">windows</a> tooltip cannot be used with a keyboard
+
+         <input type="text" rel="tooltip" id="firsname" title="Enter First Name" aria-label="firstName" data-placement="right">
+				 <ol>
+					Changes:
+					 <li> Can be used with both mouse and keyboard </li>
+					 <li>role="tooltip" for the tooltip</li>
+					 <li>aria-describedby for the anchor</li>
+				 </ol>
+
+  	 </div>
+    <script src="js/tooltip.js"></script>
+  </body>
+
+  </html>  

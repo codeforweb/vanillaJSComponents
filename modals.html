@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<title>Modal Dialog</title>
+    <meta charset="utf-8">
+     <link href="css/modals.css" rel="stylesheet">
+      <link href="css/app.css" rel="stylesheet">
+      <style>
+        button.close {
+            background: none repeat scroll 0 0 transparent;
+            border: 0 none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .close {
+            color: #000000;
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 20px;
+            text-shadow: 0 1px 0 #FFFFFF;
+        }      
+      </style>
+  </head>
+  
+  <body>
+  	 <div class="container">
+  	 		 <!-- example dropdown  -->
+         <div  class="spacebottom">
+
+
+        <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div role=document tabindex=0>
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">x<span class="offscreen">close</span></button>
+                  <h3 id="myModalLabel">Modal Heading</h3>
+                </div>
+                <div class="modal-body">
+                  <h4>Text in a modal</h4>
+                  <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
+                  <h4>Overflowing text to show optional scrollbar</h4>
+                  <p>We set a fixed <code>max-height</code> on the <code>.modal-body</code>. Watch it overflow with all this extra lorem ipsum text we've included.</p>
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn" data-dismiss="modal">Close</button>
+                  <button class="btn btn-primary">Save changes</button>
+                </div>
+            </div>  
+          </div>
+          <div style="padding-bottom: 24px;" class="spacebottom">
+           <h3>Modal Dialog</h3>
+            <a data-toggle="modal" data-target="myModal" href="#myModal" role="button" class="btn btn-primary btn-large">Launch demo modal</a>
+      	</div>
+      	
+
+  	 </div>
+    <script src="js/modals.js"></script>
+  </body>
+
+  </html>  
