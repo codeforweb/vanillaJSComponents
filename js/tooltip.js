@@ -72,9 +72,11 @@
 			docfrag.appendChild(div);
 			this.tip = docfrag.childNodes[0].childNodes[0];
 			this.ele.parentNode.insertBefore(this.tip, this.ele.nextSibling);
+			this.addDescribedBy();
 			return this.tip;
 		},
 		hidetip: function(e) {
+			this.removeDescribedBy();
 			this.tip.parentNode.removeChild(this.tip);
 			this.tip = null;
 			//this.tip.classList.remove(this.placement);
@@ -85,6 +87,29 @@
 			element.setAttribute('data-original-title', title || '')
 			element.setAttribute('title', '')
 		}
+		, addDescribedBy: 	function () {
+			var describedby = (this.ele.getAttribute( "aria-describedby" ) || "").split( /\s+/ ),
+			tooltipID =this.tip.getAttribute('id') || 'ui-tooltip-'+ Math.floor((Math.random()*100)+1);
+        	this.tip.setAttribute('id', tooltipID);
+        	describedby.push(tooltipID );
+ 			this.ele.setAttribute( "aria-describedby", describedby.join( " " ));
+		}
+
+		, removeDescribedBy: 	function(  ) {
+			var id = this.tip.getAttribute('id'),
+			describedby = (this.ele.getAttribute( "aria-describedby" ) || "").split( /\s+/ ),
+			index = describedby.indexOf( id );
+			if ( index !== -1 ) {
+				describedby.splice( index, 1 );
+			}
+			describedby =  describedby.join( " " ) ;
+			if ( describedby ) {
+				this.ele.setAttribute( "aria-describedby", describedby );
+			} else {
+				this.ele.removeAttribute( "aria-describedby" );
+			}
+		}
+				
 	}
 	Tooltip.prototype.init();
 }());
