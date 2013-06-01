@@ -24,9 +24,12 @@
 		showtip: function(e) {
 			var content, actualWidth, actualHeight, tp, pos, placement, template
 
-				this.ele = e.target;
+			this.ele = e.target;
 			template = this.ele.dataset.template || this.defaults.template;
 			this.tip = this.tip || this.createTip(this.defaults.template);
+			this.ele.parentNode.insertBefore(this.tip, this.ele.nextSibling);
+			this.addDescribedBy();
+
 			content = this.ele.dataset.originalTitle;
 
 			placement = this.ele.dataset.placement || this.defaults.placement;
@@ -71,16 +74,20 @@
 			div.innerHTML = template;
 			docfrag.appendChild(div);
 			this.tip = docfrag.childNodes[0].childNodes[0];
-			this.ele.parentNode.insertBefore(this.tip, this.ele.nextSibling);
-			this.addDescribedBy();
 			return this.tip;
 		},
 		hidetip: function(e) {
+			//this.tip = null;
+			this.tip.classList.remove('bottom');
+			this.tip.classList.remove('top');
+			this.tip.classList.remove('left');
+			this.tip.classList.remove('right');
+			this.tip.classList.remove('in');
+			this.tip.classList.remove('fade');
 			this.removeDescribedBy();
-			this.tip.parentNode.removeChild(this.tip);
-			this.tip = null;
-			//this.tip.classList.remove(this.placement);
-			//this.tip.classList.remove('in');
+			try{ 
+				this.tip.parentNode.removeChild(this.tip);	
+			}catch(e) {}			
 		},
 		fixTitle: function(element) {
 			var title = element.getAttribute('title')
