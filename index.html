@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta name="description" content="Test : testing" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
+    <style>
+  @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Roboto&display=swap");
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+      body{
+        text-align:center;
+        font-family: 'Atkinson Hyperlegible', sans-serif !important;        
+        font-size: 16px;
+/*        border: 1px dotted blue;  */
+      }
+      div#wrapper {
+          margin:0 auto; 
+          text-align:left ;
+          overflow:hidden;
+          width: 50%;  /* For aligning center */
+/*           border: 1px dotted red;   */
+      }
+       #content {
+        float: none;
+        width: 100%;
+      }
+      div#header h1 {
+          font-size: 140%;
+      }
+      section{text-align:left}
+
+      .page-contents-list {
+        margin: 1em 0 2em;
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid #aaa;
+      }
+
+      .page-contents-list li {
+        margin: 0;
+        padding:  .5em;
+        border: 1px solid #aaa;
+        border-bottom:  0;
+      }
+
+      .page-contents-list a {
+        display: inline-block;
+      }
+
+      .page-contents-list a:focus {
+        background: black;
+        outline: none;
+      }
+
+      .page-contents-list a:hover {
+        background: green;
+        color: #fff;
+      }
+
+      .page-contents-list a:active {
+        background: red;
+      }
+
+      .hide { 
+        display:none
+      }
+      .sr-only {
+        position: absolute !important;
+        height: 1px; width: 1px; 
+        overflow: hidden;
+        clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+        clip: rect(1px, 1px, 1px, 1px);
+      }
+
+    /* 
+      ##Device = Laptops, Desktops
+      ##Screen = B/w 1025px to 1280px
+    */
+    @media (min-width: 1025px) and (max-width: 1280px) {  
+            div#wrapper {
+                width: 1020px;
+            }     
+    }
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+  From https://gist.github.com/gokulkrishh/242e68d1ee94ad05f488
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+            div#wrapper {
+                width: 400px;
+            }
+}
+
+@media print{
+  a:after{content:" (" attr(href) ") ";font-size:0.8em;font-weight:normal;}
+}    
+    </style>
+    <title>Test</title>
+  </head>
+
+  <body>
+   
+        <h2>VanillaJS components</h2>
+
+      <div id="content">
+      <section> 
+          <ul class="page-contents-list" aria-label="General Components">
+            
+            <li><a href="dropdown.html">Dropdown</a></li>
+            <li><a href="modals.html">Modal Dialog</a></li>
+            <li><a href="tooltip.html">Tooltip</a></li>
+            <li><a href="tabs.html">Tab Component</a></li>
+            <li><a href="carousel.html">Carousel</a></li>
+            
+
+          </ul>
+      </section> 
+
+      </div> <!--content-->
+    </div> <!--wrapper-->
+
+  </body>
+</html>

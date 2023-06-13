@@ -35,10 +35,39 @@
 
             </div>
           </div>
-
-
   	 </div>
     <script src="js/tabs.js"></script>
+
+          <div id="code">
+            <h2>Expected Markup</h2>
+            <pre><code class="language-html">
+<ul id="myTab" role="tablist">
+        <li class="active" role="none"><a href="#home" role="tab"  id="tab1"  tabindex="0" aria-selected="true" aria-controls="home">Home</a></li>
+        <li role="none"><a href="#profile"  role="tab" id="tab2" tabindex="-1" aria-selected="false" aria-controls="profile">Profile</a></li>
+</ul>
+<div class="tab-pane fade in active" id="home" role="tabpanel" tabindex="0" aria-hidden="false" aria-labelledby="tab1">Content1</div>
+<div class="tab-pane fade" id="home" role="tabpanel" tabindex="-1" aria-hidden="true" aria-labelledby="tab2">Content2</div>              
+            </code></pre>
+            <h3>Explanation</h3>
+            <ol>
+              <li>Wrapper UL has the role of tablist, anchors that recieve the focus are tab and the main content is in tabpanel. </li>
+              <li>LI should have a role of none to remove it from AOM</li>
+              <li>selected tab should have tabindex 0 and rest of the tabs should be removed from taborder to have single tabstop</li>
+              <li>aria-controls for tab and it points to respective tabpanel. Jaws screen reader users can move to controlled element with shortcut control+M</li>
+              <li>Tab panel should have labelledby to reverse point to the respective tab</li>              
+            </ol>
+
+            <link rel="stylesheet" href="lib/css/tomorrow-night-blue.min.css">
+            <script src="lib/js/highlight.min.js"></script>
+            <script>
+              document.querySelectorAll("code").forEach(function(element) {
+                  element.innerHTML = element.innerHTML.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+              });              
+              hljs.highlightAll();
+          </script>
+          </div><!--code-->
+
+
   </body>
 
   </html>  

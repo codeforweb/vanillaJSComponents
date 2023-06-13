@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	  <title>Carousel</title>
+    <meta charset='utf-8' />
+    <meta name="description" content="Test : testing" />
+    <link href="css/fontawesome-free-5.15.4/css/all.css" rel="stylesheet"> <!--load all styles -->
+    
+    <style type="text/css">
+    	@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+		:root {
+		  --carousel-height: 400px;
+		  --slide-width: calc(100% / 3);
+		}
+
+		* {
+		  box-sizing: border-box;
+		}
+
+		body {
+		  background-color: #f5f5f5;
+		  padding: 20px;
+		  font-family: 'Merriweather', serif;
+		}
+
+		/** Wrapper **********************/
+		.carousel {
+		  position: relative;
+		  width: calc(100% - 40px);
+		  max-width: 900px;
+		  height: var(--carousel-height);
+		  margin: 0 auto;
+		  padding: 0 20px;
+		}
+
+		/** Previous/next buttons ********/
+		.previous,
+		.next {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  
+		  padding: 5px 10px;
+		  position: absolute;
+		  top: calc(50% - 16px);
+		  cursor: pointer;
+		  font-size: 32px;
+		  
+		  border: 0;
+		  background: none;
+		}
+
+		  .previous { left: -30px; }
+		  .next { right: -30px; }
+
+
+		  .previous { left: -30px; }
+		  .next { right: -30px; }
+
+		/** Slides track ***************/
+		.slides {
+		  list-style: none;
+		  padding: 0;
+		  margin: 0;
+		  
+		  display: flex;
+		  width: 100%;
+		  overflow: hidden;
+		}
+
+		/** Individual slides ***********/
+		.slide {
+		  flex: 0 0 calc(100% / 3 - 10px);
+		  
+		  margin: 0 5px;
+		  padding: 20px;
+		  height: var(--carousel-height);
+		  
+		  display: flex;
+		  align-items: center;
+		  
+		  font-size: 18px;
+		  line-height: 26px;
+		  background-color: white;
+		}
+
+		  @media screen and (max-width: 768px) {
+		    .slide {
+		      font-size: 14px;
+		      line-height: 18px;
+		      align-items: flex-start;
+		    }
+		  }
+
+		  .slide a {
+		    color: black;
+		    font-weight: bold;
+		  }
+
+	/** Slide dots ******************/
+		.navigation {
+		  position: absolute;
+		  left: 0;
+		  bottom: -40px;
+		  
+		  list-style: none;
+		  padding: 0;
+		  margin: 0;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  width: 100%;
+		}
+
+	  .navigation li {
+	    display: inline-block;
+	  }
+
+	    .navigation li button {
+	      display: block;
+	      width: 10px;
+	      height: 10px;
+	      margin: 0 5px;
+	      border: 0;
+	      border-radius: 100px;
+	      background-color: rgba(0,0,0,.2);
+	      cursor: pointer;
+	    }
+
+      .navigation li button:focus {
+        outline-offset: 4px;
+      }
+
+      /** Active slide dot */
+      .navigation li button[aria-current="true"] {
+        background-color: black;
+        width: 25px;
+        height: 15px;
+        border-radius: 200px;
+      }
+
+
+.block {
+  position: relative;
+}
+
+/* Block links */
+
+.block {
+  position: relative;
+}
+
+.block a[href]::after, .block button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+.block:hover, .block:focus-within, .default:hover, .default:focus-within {
+  border: 2px solid blue;
+  /*border-color: rgba(0,0,255,.5);*/
+  box-shadow: 0 0 .5em rgba(0,0,0,.25);
+}
+
+
+
+/* ------------------------------------ */
+
+/* Now with another link in the block thinger */
+
+.block.extracta a[href]::after {
+  bottom: 3.75em;
+}
+
+.block.extracta p a[href]::after {
+  content: none;
+}
+
+.block.extracta p a[href] {
+  display: block;
+  text-align: center;
+  margin: 1em 2em 0 2em;
+  padding: .5em 1em;
+  border: .1em solid #00c;
+  border-radius: .25em;
+  text-decoration: none;
+  color: #fff;
+  background-color: #00c;
+}
+
+.block.extracta p a[href]:focus, .block.extracta p a[href]:hover {
+  color: #00c;
+  background-color: #fff;
+}
+
+
+    </style>
+
+</head>
+<body>
+		<div id="wrapper">
+			<div id="header"><a href="https://www.bbc.com">BBC</a></div>
+			<div id="content">
+
+
+	<div class="carousel">
+    	<button class="previous">
+    		<span class="fas fa-chevron-left" aria-hidden="true"></span>
+    		<span class="sr-only">Previous Card</span>
+  		</button>
+
+	  	<ul class="slides" role="presentation">
+
+	    <li class="slide block extracta" role="group" aria-roledescription="card" aria-label="1 of 9">
+	      <p>Explore creative ways to split the bill or send money with a friendly message, colorful theme, GIFs, and more.
+	       <br><br> <a href="https://www.paypal.com">PayPal</a></p>
+	    </li>
+	    
+	    <li class="slide block extracta" role="group" aria-roledescription="card" aria-label="2 of 9">
+	      <p>Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware <br><br><a href="https://www.google.com">Google</a></p>
+	    </li>
+	    
+	    <li class="slide block extracta" role="group" aria-roledescription="card" aria-label="3 of 9">
+	      <p>Yahoo provides a web portal, search engine Yahoo Search, and related services, including My Yahoo!, Yahoo Mail, Yahoo News, Yahoo Finance, Yahoo Sports and its advertising platform, Yahoo! Native. <br><br> <a href="https://www.yahoo.com">Yahoo</a></p>
+	    </li>
+	    
+	    <li class="slide block extracta" role="group" aria-roledescription="card" aria-label="4 of 9">
+	      <p>Amazon.com, Inc. is an American multinational technology company which focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. <br><br> <a href="https://www.amazon.com">Amazon</a></p>
+	    </li>
+	    
+	    <li class="slide block extracta" role="group" aria-roledescription="card" aria-label="5 of 9">
+	      <p>Flipkart is an Indian e-commerce company, headquartered in Bangalore, Karnataka, India, and incorporated in Singapore as a private limited company. <br><br> <a href="https://www.flipcart.com">Flipcart</a></p>
+	    </li>
+	    
+	    <li class="slide block extracta" role="group" aria-roledescription="card" aria-label="6 of 9">
+	      <p>In Snapchat pictures and messages are usually only available for a short time before they become inaccessible to their recipients<br><br> <a href="https://www.snapchat.com">Snapchat</a></p>
+	    </li>
+	    
+	    <li class="slide block extracta" role="group" aria-roledescription="card" aria-label="7 of 9">
+	      <p>Instagram is a free photo and video sharing app available on iPhone and Android.  <br><br> <a href="https://www.instagram.com">Instagram</a></p>
+	    </li>
+	    
+	    <li class="slide block extracta" role="group" aria-roledescription="card" aria-label="8 of 9">
+	      <p> Connect with friends, work colleagues or people they don’t know, online. It allows users to share pictures, music, videos, and articles, as well as their own thoughts and opinions with however many people they like<br><br> <a href="https://www.facebook,com">Facebook</a></p>
+	    </li>
+	    
+	    <li class="slide block extracta" role="group" aria-roledescription="card" aria-label="9 of 9">
+	      <p>WhatsApp Messenger, or simply WhatsApp, is an internationally available American freeware, cross-platform centralized instant messaging and voice-over-IP service owned by Meta Platforms. <br> <a href="https://web.whatsapp.com">Whatsapp Web</a></p>
+	    </li>
+
+
+	  </ul>
+
+	  <button class="next">
+	    <span class="fas fa-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next Card</span>
+	  </button>
+
+	<ul class="navigation">
+	    <li>
+	      <button aria-current="true">
+	        <span class="sr-only">Go to card 1</span>
+	      </button>
+	    </li>
+	    <li>
+	      <button>
+	        <span class="sr-only">Go to card 2</span>
+	      </button>
+	    </li>
+	    <li>
+	      <button>
+	        <span class="sr-only">Go to card 3</span>
+	      </button>
+	    </li>
+	    <li>
+	      <button>
+	        <span class="sr-only">Go to card 4</span>
+	      </button>
+	    </li>
+	    <li>
+	      <button>
+	        <span class="sr-only">Go to card 5</span>
+	      </button>
+	    </li>
+	    <li>
+	      <button>
+	        <span class="sr-only">Go to card 6</span>
+	      </button>
+	    </li>
+	    <li>
+	      <button>
+	        <span class="sr-only">Go to card 7</span>
+	      </button>
+	    </li>
+	    <li>
+	      <button>
+	        <span class="sr-only">Go to card 8</span>
+	      </button>
+	    </li>
+	    <li>
+	      <button>
+	        <span class="sr-only">Go to card 9</span>
+	      </button>
+	    </li>
+  	</ul>
+
+  	<div id="announcement" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+</div>. <!-- carousel div -->
+
+			</div> <!--content-->
+		</div> <!--wrapper-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+<script>
+
+	var previousButton, nextButton;
+	var slidesContainer, slides, slideDots;
+	var leftMostSlideIndex = 0;
+	var slideGap = 5;
+
+window.addEventListener('DOMContentLoaded', function(e) {
+  previousButton = document.querySelector('.previous');
+  nextButton = document.querySelector('.next');
+  slidesContainer = document.querySelector('.slides');
+  slides = slidesContainer.querySelectorAll('.slide');
+  slideDots = document.querySelectorAll('.navigation li button');
+
+  // Set up previous/next button behaviors
+  previousButton.addEventListener('click', previousSlide);
+  nextButton.addEventListener('click', nextSlide);
+  
+  // Ensure that all non-visible slides are impossible to reach.
+  hideNonVisibleSlides();
+  
+  // Set up the slide dot behaviors
+  slideDots.forEach(function(dot) {
+    dot.addEventListener('click', function(e) {
+      goToSlide(Array.prototype.slice.call(slideDots).indexOf(e.target));
+    });
+  });
+});
+
+/** Go to previous slide */
+function previousSlide() {
+  if(leftMostSlideIndex > 0) {
+    goToSlide(leftMostSlideIndex - 1);
+  } else {
+    goToSlide(slides.length - 1);
+  }
+}
+
+/** Go to next slide */
+function nextSlide() {
+  if(leftMostSlideIndex < slides.length - 1) {
+    goToSlide(leftMostSlideIndex + 1);
+  } else {
+    goToSlide(0);
+  }
+}
+
+/** Go to a specific slide */
+function goToSlide(nextLeftMostSlideIndex) {
+  // Smoothly scroll to the requested slide
+  $(slidesContainer).animate({
+    scrollLeft: (slidesContainer.offsetWidth / 3) * nextLeftMostSlideIndex
+  }, {
+    duration: 200
+  });
+  
+  // Unset aria-current attribute from any slide dots that have it
+  slideDots.forEach(function(dot) {
+    dot.removeAttribute('aria-current');
+    dot.removeAttribute('aria-disabled');     
+  });
+  
+  // Set aria-current attribute on the correct slide dot
+  slideDots[nextLeftMostSlideIndex].setAttribute('aria-current', true);
+  slideDots[nextLeftMostSlideIndex].setAttribute('aria-disabled', true);		/*aria-disabled is preferable to the HTML disabled attribute because this is a circumstance where screen reader users benefit from the disabled button being included in the page Tab sequence.*/
+
+  
+  // Update the record of the left-most slide
+  leftMostSlideIndex = nextLeftMostSlideIndex;
+  
+  // Update each slide so that the ones that are now off-screen are fully hidden.
+  hideNonVisibleSlides();
+
+  // console.log('hi', nextLeftMostSlideIndex +1 , slides.length)
+  document.querySelector('#announcement').textContent = 'Showing card ' + (nextLeftMostSlideIndex + 1) + ' of ' +   slides.length;
+}
+
+
+/**
+  Fully hide non-visible slides by adding aria-hidden="true" and tabindex="-1" when they go out of view
+*/
+function hideNonVisibleSlides() {
+  // Start by hiding all the slides and their content
+  slides.forEach(function(slide) {
+    slide.setAttribute('aria-hidden', true);
+    
+    slide.querySelectorAll('a, button, select, input, textarea, [tabindex="0"]').forEach(function(focusableElement) {
+      focusableElement.setAttribute('tabindex', -1);      
+    });
+  });
+  
+  // Since we know 3 slides are visible at a time, make sure that the 3 slides starting with the left-most one are not hidden to anybody.
+  if(leftMostSlideIndex < 6) {
+    for(var i = leftMostSlideIndex; i < leftMostSlideIndex + 3; i++) {
+      slides[i].removeAttribute('aria-hidden');
+      
+      slides[i].querySelectorAll('a, button, select, input, textarea, [tabindex="0"]').forEach(function(focusableElement) {
+        focusableElement.removeAttribute('tabindex');      
+      });
+    }
+    
+  // Since scrolling stops when the carousel reaches the last three slides, we should make sure that these last three slides stay visible until the user wraps or goes backwards.
+  } else {
+    for(var i = 6; i < 9; i++) {
+      slides[i].removeAttribute('aria-hidden');
+      
+      slides[i].querySelectorAll('a, button, select, input, textarea, [tabindex="0"]').forEach(function(focusableElement) {
+        focusableElement.removeAttribute('tabindex');      
+      });
+    }
+  }
+}
+
+
+</script>
+	<!--
+		Block product cards
+		https://codepen.io/aardrian/pen/vYOGpXb. (Article: https://adrianroselli.com/2020/02/block-links-cards-clickable-regions-etc.html)
+	-->	
+</body>
+</html>
